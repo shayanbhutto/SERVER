@@ -7,7 +7,8 @@ USERNAMES_PASSWORDS = {
     "shayan": "shayan11",
     "aziz": "aziz11",
     "sumira": "sumira11",
-    "komal": "komal11"
+    "komal": "komal11",
+    "fatima": "fatima11"
 }
 
 @app.route('/login', methods=['POST'])
