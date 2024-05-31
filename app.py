@@ -19,9 +19,9 @@ def login():
 
         # Check if the username exists in the dictionary and if the password matches
         if username in USERNAMES_PASSWORDS and password == USERNAMES_PASSWORDS[username]:
-            return jsonify(0), 200
+            return jsonify(1), 200
         else:
-            return jsonify(1), 401
+            return jsonify(0), 401
     else:
         return jsonify({'error': 'Username or password not provided'}), 400
 
