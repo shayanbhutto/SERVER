@@ -21,9 +21,9 @@ def login():
         if username in USERNAMES_PASSWORDS and password == USERNAMES_PASSWORDS[username]:
             return jsonify(1), 200
         else:
-            return jsonify(0), 401
+            return jsonify(0), 200
     else:
         return jsonify({'error': 'Username or password not provided'}), 400
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(debug=False)
