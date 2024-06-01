@@ -53,15 +53,30 @@ chat_session = model.start_chat(
     {
       "role": "user",
       "parts": [
-        "if you are asked to turn on/off lights of bedroom, return BED_LIGHTS_ON or BED_LIGHTS_OFF. \nif you are asked to open/close main gate or main door, return MAIN_DOOR_OPEN or MAIN_DOOR_CLOSE. If you receive similar words that still make same sense, then still execute it. Like if someone says lock the door, it means close the door, unlock the door means open the door, there are many other words, shut, etc. Similarly, for turning on and off the light in bedroom user can give you different words but you have accept those like shut down the lights, down the lights, lights low etc. If you are asked to do something while given scenario do best options, if you are asked it's dark in room, you might want to turn on the lights, if you are told that someone is breaking into the house, you close the main door. You aren't limited to these words only, sense what user might want to convey then act accordingly. If someone says it's too dark in my bedroom, you should turn on bedroom lights. Similarly for kitchen, there's KITCHEN_LIGHTS_ON and KITCHEN_LIGHTS_OFF and WASHROOM_LIGHTs_ON and WASHROOM_LIGHTs_OFF. Moreover, we have controller for fan FAN_SPEED_STOP this stops or power off or turns off the fan, then FAN_SPEED_INCREASE to increase fan speed and FAN_SPEED_DECREASE to slow down fan speed. Then we have our phone connected to charger, if you are asked to connect charger to phone, return START_PHONE_CHARGE, and when we need to stop the charging STOP_PHONE_CHARGE. You dont have to rely on these keywords only, you can also perform same task when same meaning request comes in different words, like Plug in the phone, it means starting charging of phone, etc.",
+        "if you are asked to turn on/off lights of bedroom, return BED_LIGHTS_ON or BED_LIGHTS_OFF. \nif you are asked to open/close main gate or main door, return MAIN_DOOR_OPEN or MAIN_DOOR_CLOSE. If you receive similar words that still make same sense, then still execute it. Like if someone says lock the door, it means close the door, unlock the door means open the door, there are many other words, shut, etc. Similarly, for turning on and off the light in bedroom user can give you different words but you have accept those like shut down the lights, down the lights, lights low etc. If you are asked to do something while given scenario do best options, if you are asked it's dark in room, you might want to turn on the lights, if you are told that someone is breaking into the house, you close the main door. You aren't limited to these words only, sense what user might want to convey then act accordingly. If someone says it's too dark in my bedroom, you should turn on bedroom lights.",
       ],
     },
+
     {
       "role": "model",
       "parts": [
         "Got it! I'll  interpret commands related to bedroom lights and main gate/door, and return the corresponding code.  \n\nHere's a breakdown of how I'll handle it:\n\n**Input:**  A speech command related to bedroom lights or main gate/door\n\n**Output:**\n* **For bedroom lights:**\n    * \"Turn on the bedroom lights\" -> `BED_LIGHTS_ON`\n    * \"Switch off the bedroom lights\" -> `BED_LIGHTS_OFF`\n    * \"Turn off bedroom lights\" -> `BED_LIGHTS_OFF` (we'll allow for variations) \n\n* **For main gate/door:**\n    * \"Open the main gate\" -> `MAIN_DOOR_OPEN`\n    * \"Close the main gate\" -> `MAIN_DOOR_CLOSE`\n    * \"Open the main door\" -> `MAIN_DOOR_OPEN` (we'll assume \"door\" refers to the main gate/door)\n    * \"Close the main door\" -> `MAIN_DOOR_CLOSE`\n\n**Let's test it!**\n\nGive me a command related to bedroom lights or the main gate/door, and I'll give you the corresponding code. \n",
       ],
     },
+
+    {
+      "role": "user",
+      "parts": [
+        "Similarly for kitchen, there's KITCHEN_LIGHTS_ON and KITCHEN_LIGHTS_OFF and WASHROOM_LIGHTS_ON and WASHROOM_LIGHTS_OFF. Moreover, we have controller for fan FAN_SPEED_STOP this stops or power off or turns off the fan, then FAN_SPEED_INCREASE to increase fan speed and FAN_SPEED_DECREASE to slow down fan speed. Then we have our phone connected to charger, if you are asked to connect charger to phone, return START_PHONE_CHARGE, and when we need to stop the charging STOP_PHONE_CHARGE. You dont have to rely on these keywords only, you can also perform same task when same meaning request comes in different words, like Plug in the phone, it means starting charging of phone, etc.",
+      ],
+    },
+    {
+      "role": "model",
+      "parts": [
+        "Understood, similar to bedroom light control, if user asks to turn on kitchen lights I will return KITCHEN_LIGHTS_ON, when asked to turn off kitchen lights, i will return KITCHEN_LIGHTS_OFF. Same for Washroom, I will return WASHROOM_LIGHTS_OFF and WASHROOM_LIGHTS_ON based on user needs. If I am asked to change speed of the fan, I will return FAN_SPEED_DECREASE to slow down the fan, and FAN_SPEED_INCREASE to speed up the fan. If I am asked to stop the fan, I will return FAN_SPEED_STOP. If the user asks to start charging or connect plug, i'll return START_PHONE_CHARGE, when asked to stop charging, I will return STOP_PHONE_CHARGE.",
+      ],
+    },
+
     {
       "role": "user",
       "parts": [
