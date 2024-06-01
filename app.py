@@ -116,12 +116,12 @@ def transcribe_audio(file_path):
 @app.route('/upload_voice', methods=['POST'])
 def upload_file():
     if 'file' not in request.files:
-        return jsonify({'error': 'No file part'}), 400
+        return jsonify({'error': 'No file part'}), 401
 
     file = request.files['file']
 
     if file.filename == '':
-        return jsonify({'error': 'No selected file'}), 400
+        return jsonify({'error': 'No selected file'}), 402
 
     if file and allowed_file(file.filename):
         filename = secure_filename(file.filename)
@@ -139,7 +139,7 @@ def upload_file():
         else:
             return jsonify({'error': 'File not saved at expected location'}), 500
     else:
-        return jsonify({'error': 'Invalid file or file extension'}), 400
+        return jsonify({'error': 'Invalid file or file extension'}), 403
 
 # Dictionary of valid username-password combinations
 USERNAMES_PASSWORDS = {
