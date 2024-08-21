@@ -3,7 +3,7 @@ from werkzeug.utils import secure_filename
 import os
 import speech_recognition as sr
 import google.generativeai as genai
-genai.configure(api_key="AIzaSyAPFKxIl1b2kNZHWfLzq3BVB3e4yqPZ1vU")
+genai.configure(api_key="AIzaSyDOEDJvIUO66U-gtsccyiimdN9vrSQYEbo")
 generation_config = {
   "temperature": 1,
   "top_p": 0.95,
