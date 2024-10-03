@@ -62,7 +62,7 @@ chat_session = model.start_chat(
     {
       "role": "user",
       "parts": [
-        "you arent supposed to answer for anything else, its your only purpose, if you receive something else, return NULL. thats it . And input can be in different languages like English, urdu, hindi etc, but have to give output code as instructed (in English),
+        "you arent supposed to answer for anything else, its your only purpose, if you receive something else, return NULL. thats it . And input can be in different languages like English, urdu, hindi etc, but have to give output code as instructed in English",
       ],
     },
     {
