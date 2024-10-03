@@ -62,7 +62,7 @@ chat_session = model.start_chat(
     {
       "role": "user",
       "parts": [
-        "you arent supposed to answer for anything else, its your only purpose, if you receive something else, return NULL. thats it",
+        "you arent supposed to answer for anything else, its your only purpose, if you receive something else, return NULL. thats it . And input can be in different languages like English, urdu, hindi etc, but have to give output code as instructed (in English),
       ],
     },
     {
@@ -103,7 +103,7 @@ def transcribe_audio(file_path):
     with sr.AudioFile(file_path) as source:
         audio_data = r.record(source)
         try:
-            text = r.recognize_google(audio_data)
+            text = r.recognize_google(audio_data, language='hi-IN')
             return text
         except sr.UnknownValueError:
             return 'Speech recognition could not understand the audio'
